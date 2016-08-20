@@ -14,8 +14,15 @@ if(ANDROID)
 	android_ndk_import_module_native_app_glue()
 endif()
 
+
 add_subdirectory(lib)
-add_subdirectory(samples)
-add_subdirectory(test)
+if(!no_samples)
+	add_subdirectory(samples)
+endif()
+
+if(!no_test)
+	add_subdirectory(test)
+endif()
+
 
 
