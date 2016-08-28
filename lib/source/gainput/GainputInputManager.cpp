@@ -285,6 +285,12 @@ InputManager::DeviceCreated(InputDevice* device)
 
 #if defined(GAINPUT_PLATFORM_LINUX)
 void
+InputManager::HandleEvent(XEvent* event)
+{
+	HandleEvent(*event);
+}
+
+void
 InputManager::HandleEvent(XEvent& event)
 {
 	for (DeviceMap::const_iterator it = devices_.begin();
@@ -318,6 +324,12 @@ InputManager::HandleEvent(XEvent& event)
 #endif
 
 #if defined(GAINPUT_PLATFORM_WIN)
+void
+InputManager::HandleMessage(const MSG* msg)
+{
+	HandleEvent(*msg);
+}
+
 void
 InputManager::HandleMessage(const MSG& msg)
 {
