@@ -327,7 +327,7 @@ InputManager::HandleEvent(XEvent& event)
 void
 InputManager::HandleMessage(const MSG* msg)
 {
-	HandleEvent(*msg);
+	HandleMessage(*msg);
 }
 
 void
